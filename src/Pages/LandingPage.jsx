@@ -68,6 +68,10 @@ const LandingPage = () => {
     document.body.classList.toggle('dark-mode', !darkMode);
   };
 
+  const handleGallery = () => {
+    navigate('/gallery');
+  }
+
   const features = [
     {
       title: "Modular Kitchens",
@@ -152,7 +156,7 @@ const LandingPage = () => {
     {
       id: 1,
       title: "Expert Team",
-      description: "15+ years of combined experience in interior design and architecture",
+      description: "3+ years of combined experience in interior design and architecture",
       icon: <FaUsers className="about-feature-icon" />,
       stats: "15+ Professionals"
     },
@@ -336,6 +340,7 @@ const LandingPage = () => {
             <li><a href="#services">Services</a></li>
             <li><a href="#key-features">Features</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#gallery" onClick={handleGallery}>Onsite Gallery</a></li>
           </ul>
           <div className="nav-actions">
             <button className="estimate-btn" onClick={handleEstimate}>
@@ -701,6 +706,7 @@ const LandingPage = () => {
                 <a href="#process">Our Process</a>
                 <a href="#key-features">Features</a>
                 <a href="#contact">Contact</a>
+                <a href="#gallery">Onsite Gallery</a>
               </div>
             </div>
           </div>

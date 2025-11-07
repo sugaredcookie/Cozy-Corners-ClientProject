@@ -24,6 +24,10 @@ const FinalEstimate = () => {
     document.body.classList.toggle('dark-mode', !darkMode);
   };
 
+  const handleGallery = () => {
+    navigate('/gallery');
+  }
+
   const handleGoHome = () => {
     navigate('/');
   };
@@ -133,10 +137,11 @@ const FinalEstimate = () => {
           <ul className="nav-links">
             <li><a href="#home" onClick={handleGoHome}>Home</a></li>
             <li><a href="#about" onClick={handleGoHome}>About</a></li>
-            <li><a href="#process" onClick={handleGoHome}>Process</a></li>
             <li><a href="#services" onClick={handleGoHome}>Services</a></li>
+            <li><a href="#process" onClick={handleGoHome}>Process</a></li>
             <li><a href="#key-features" onClick={handleGoHome}>Features</a></li>
             <li><a href="#contact" onClick={handleGoHome}>Contact</a></li>
+            <li><a href="#gallery" onClick={handleGallery}>Onsite Gallery</a></li>
           </ul>
           <div className="nav-actions">
             <button className="estimate-btn" onClick={handleGoHome}>

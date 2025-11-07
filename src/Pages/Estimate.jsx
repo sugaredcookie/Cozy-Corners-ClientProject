@@ -36,6 +36,10 @@ const Estimate = () => {
 
   const navigate = useNavigate();
 
+  const handleGallery = () => {
+    navigate('/gallery');
+  }
+
   const toggleTheme = () => {
     setDarkMode(!darkMode);
     document.body.classList.toggle('dark-mode', !darkMode);
@@ -352,6 +356,7 @@ const Estimate = () => {
             <li><a href="#process" onClick={handleGoHome}>Process</a></li>
             <li><a href="#key-features" onClick={handleGoHome}>Features</a></li>
             <li><a href="#contact" onClick={handleGoHome}>Contact</a></li>
+            <li><a href="#gallery" onClick={handleGallery}>Onsite Gallery</a></li>
           </ul>
           <div className="nav-actions">
             <button className="estimate-btn" onClick={handleGoHome}>
