@@ -706,7 +706,7 @@ const LandingPage = () => {
                 <a href="#process">Our Process</a>
                 <a href="#key-features">Features</a>
                 <a href="#contact">Contact</a>
-                <a href="#gallery">Onsite Gallery</a>
+                <a href="#gallery" onClick={handleGallery}>Onsite Gallery</a>
               </div>
             </div>
           </div>
