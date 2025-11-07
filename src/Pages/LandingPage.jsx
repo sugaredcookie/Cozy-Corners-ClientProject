@@ -679,7 +679,7 @@ const LandingPage = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-brand">
-              <img src="/src/assets/logo.png" alt="Logo" className="logo"/>
+              <img src={logo} alt="Logo" className="logo"/>
               <p>Creating beautiful spaces that inspire and delight since 2008.</p>
               <div className="footer-contact">
                 <p><FaPhone className="contact-icon" /> +91 7995369122</p>
