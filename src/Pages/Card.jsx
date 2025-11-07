@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaPhone, FaMapMarkerAlt, FaClock, FaTimes, FaWhatsapp, FaStar } from 'react-icons/fa';
 import './Card.css';
+import logo from '/src/assets/logo.png';
+import card from '/src/assets/card.jpg';
 
 function Card({ onClose }) {
   const handleCallNow = () => {
@@ -24,7 +26,7 @@ function Card({ onClose }) {
           {/* Left Side - Store Image */}
           <div className="card-left">
             <div className="store-image-container">
-              <img src="/src/assets/card.jpg" alt="Our Store" className="store-image" />
+              <img src={card} alt="Our Store" className="store-image" />
               <div className="image-overlay">
               </div>
             </div>
@@ -34,7 +36,7 @@ function Card({ onClose }) {
           <div className="card-right">
             {/* Store Header */}
             <div className="store-header">
-              <img src="/src/assets/logo.png" alt="Logo" className='store-name'/>
+              <img src={logo} alt="Logo" className='store-name'/>
             </div>
             
             {/* Action Buttons */}
