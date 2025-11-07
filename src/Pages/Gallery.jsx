@@ -11,6 +11,7 @@ import {
   FaExpand,
   FaPlay
 } from 'react-icons/fa';
+import logo from '/src/assets/logo.png';
 
 // Photos
 import photo1 from '/src/assets/gallery_photos/my_photo (1).jpg';
@@ -127,7 +128,7 @@ const Gallery = () => {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-container">
-          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src='/src/assets/logo.png' alt="Cozy Corners"/>
+          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src={logo} alt="Cozy Corners"/>
           <ul className="nav-links">
             <li><a href="#home" onClick={handleGoHome}>Home</a></li>
             <li><a href="#about" onClick={handleGoHome}>About</a></li>
