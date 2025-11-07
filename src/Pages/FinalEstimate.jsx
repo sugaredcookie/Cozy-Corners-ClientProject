@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './FinalEstimate.css';
+import logo from '/src/assets/logo.png';
 import { 
   FaWhatsapp, 
   FaPhone, 
@@ -128,7 +129,7 @@ const FinalEstimate = () => {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-container">
-          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src='/src/assets/logo.png'/>
+          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src={logo}/>
           <ul className="nav-links">
             <li><a href="#home" onClick={handleGoHome}>Home</a></li>
             <li><a href="#about" onClick={handleGoHome}>About</a></li>

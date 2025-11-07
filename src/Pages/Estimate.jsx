@@ -5,6 +5,7 @@ import bhk1 from '/src/assets/1bhk.jpeg'
 import bhk2 from '/src/assets/2bhk.jpeg'
 import bhk3 from '/src/assets/3bhk.jpeg'
 import bhk4 from '/src/assets/4bhk.jpeg'
+import logo from '/src/assets/logo.png';
 import { 
   FaArrowRight, 
   FaArrowLeft, 
@@ -343,7 +344,7 @@ const Estimate = () => {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-container">
-          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src='/src/assets/logo.png'/>
+          <img className="logo" onClick={handleGoHome} style={{ cursor: 'pointer' }} src={logo}/>
           <ul className="nav-links">
             <li><a href="#home" onClick={handleGoHome}>Home</a></li>
             <li><a href="#about" onClick={handleGoHome}>About</a></li>
