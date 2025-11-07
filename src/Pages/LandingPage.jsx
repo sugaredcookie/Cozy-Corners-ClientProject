@@ -4,6 +4,7 @@ import "./LandingPage.css";
 import logo from '/src/assets/logo.png';
 import Card from "./Card.jsx"
 import { 
+  FaCamera,
   FaUniversity,
   FaWhatsapp, 
   FaInstagram, 
@@ -43,7 +44,8 @@ import {
   FaHandshake,
   FaHeadset,
   FaRocket,
-  FaHeart
+  FaHeart,
+  FaImages
 } from "react-icons/fa";
 
 const LandingPage = () => {
@@ -492,7 +494,6 @@ const LandingPage = () => {
                 </div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
-                {/* <div className="service-projects">{service.projects}</div> */}
                 
                 {/* Service Images Gallery */}
                 <div className="service-images">
@@ -601,10 +602,6 @@ const LandingPage = () => {
                 >
                   View All Images
                 </button>
-                
-                {/* <div className="feature-arrow">
-                  <FaArrowRight />
-                </div> */}
               </div>
             ))}
           </div>
@@ -723,6 +720,7 @@ const LandingPage = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-icon"
+          title="Contact on WhatsApp"
         >
           <FaWhatsapp />
         </a>
@@ -731,8 +729,16 @@ const LandingPage = () => {
           target="_blank" 
           rel="noopener noreferrer"
           className="instagram-icon"
+          title="Follow on Instagram"
         >
           <FaInstagram />
+        </a>
+        <a
+          className="gallery-icon"
+          onClick={handleGallery}
+          title="View Gallery"
+        >
+          <FaCamera />
         </a>
       </div>
 

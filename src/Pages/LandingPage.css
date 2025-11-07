@@ -1198,6 +1198,16 @@ body.dark-mode {
   transform: translateY(-2px) scale(1.1);
 }
 
+.gallery-icon {
+  background: linear-gradient(135deg, #2F3640, #353B48, #40739E);
+  color: white;
+}
+
+.gallery-icon:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(47, 54, 64, 0.4);
+}
+
 /* Key Features Section */
 .key-features-section {
   padding: 100px 0;
