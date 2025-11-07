@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Estimate.css';
+import bhk1 from '/src/assets/1bhk.jpeg'
+import bhk2 from '/src/assets/2bhk.jpeg'
+import bhk3 from '/src/assets/3bhk.jpeg'
+import bhk4 from '/src/assets/4bhk.jpeg'
 import { 
   FaArrowRight, 
   FaArrowLeft, 
@@ -52,7 +56,7 @@ const Estimate = () => {
     {
       id: '1bhk',
       name: '1 BHK',
-      image: '/src/assets/1bhk.jpeg',
+      image: bhk1,
       description: 'Perfect for singles or couples',
       size: '500-700 sq.ft',
       bedrooms: 1
@@ -60,7 +64,7 @@ const Estimate = () => {
     {
       id: '2bhk',
       name: '2 BHK',
-      image: '/src/assets/2bhk.jpeg',
+      image: bhk2,
       description: 'Ideal for small families',
       size: '800-1000 sq.ft',
       bedrooms: 2
@@ -68,7 +72,7 @@ const Estimate = () => {
     {
       id: '3bhk',
       name: '3 BHK',
-      image: '/src/assets/3bhk.jpeg',
+      image: bhk3,
       description: 'Spacious family living',
       size: '1200-1500 sq.ft',
       bedrooms: 3
@@ -76,7 +80,7 @@ const Estimate = () => {
     {
       id: '4bhk',
       name: '4 BHK',
-      image: '/src/assets/4bhk.jpeg',
+      image: bhk4,
       description: 'Luxury living space',
       size: '1800-2200 sq.ft',
       bedrooms: 4

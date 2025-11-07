@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "./LandingPage.css";
+import logo from '/src/assets/logo.png';
 import Card from "./Card.jsx"
 import { 
   FaUniversity,
@@ -327,7 +328,7 @@ const LandingPage = () => {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-container">
-          <img className="logo" src="/src/assets/logo.png" alt="Cozy Corners" />
+          <img className="logo" src={logo} alt="Cozy Corners" />
           <ul className="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
