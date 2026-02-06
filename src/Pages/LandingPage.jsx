@@ -267,8 +267,8 @@ const LandingPage = () => {
   ];
 
   const stats = [
-    { number: "15+", label: "Projects Completed" },
-    { number: "3+", label: "Years Experience" },
+    { number: "50+", label: "Projects Completed" },
+    { number: "4+", label: "Years Experience" },
     { number: "98%", label: "Client Satisfaction" },
     { number: "100+", label: "Happy Clients" }
   ];
