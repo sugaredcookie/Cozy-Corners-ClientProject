@@ -1,3 +1,4 @@
+
 .gallery-page {
   min-height: 100vh;
   position: relative;
@@ -9,17 +10,16 @@
 
 .gallery-background {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .gallery-bg-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -35,13 +35,18 @@
 
 .gallery-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(139, 95, 191, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(108, 99, 255, 0.08) 0%, transparent 50%);
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(139, 95, 191, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(108, 99, 255, 0.08) 0%,
+      transparent 50%
+    );
 }
 
 .gallery-container {
@@ -53,6 +58,7 @@
 }
 
 /* Header */
+
 .gallery-header {
   text-align: center;
   margin-bottom: 50px;
@@ -78,31 +84,50 @@
 }
 
 /* Gallery Grid */
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 300px), 1fr)
+  );
+  gap: 24px;
   margin-bottom: 40px;
+  align-items: stretch;
 }
 
 .gallery-item {
+  min-width: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 16px;
+  outline-offset: 4px;
 }
 
 .gallery-item:hover {
   transform: translateY(-5px);
 }
 
+.gallery-item:focus-visible {
+  outline: 3px solid #6c63ff;
+}
+
+/* Images and videos */
+
 .image-container {
   position: relative;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-primary);
 }
 
-.gallery-image, .gallery-video {
+.gallery-image,
+.gallery-video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -118,6 +143,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .video-play-icon {
@@ -131,34 +157,34 @@
   padding: 15px;
   border-radius: 50%;
   z-index: 2;
+  pointer-events: none;
 }
 
 .image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .gallery-item:hover .image-overlay {
   opacity: 1;
 }
 
-.expand-icon, .play-icon {
+.expand-icon,
+.play-icon {
   color: white;
   font-size: 2rem;
   background: rgba(108, 99, 255, 0.9);
   padding: 12px;
   border-radius: 50%;
   transform: scale(0.8);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .gallery-item:hover .expand-icon,
@@ -166,13 +192,135 @@
   transform: scale(1);
 }
 
-/* Lightbox Modal */
+/* PDF Cards */
+
+.pdf-gallery-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+  border: 1px solid rgba(108, 99, 255, 0.13);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.pdf-gallery-item:hover {
+  border-color: rgba(108, 99, 255, 0.45);
+  box-shadow: 0 12px 35px rgba(108, 99, 255, 0.12);
+}
+
+.pdf-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 250px;
+  padding: 24px;
+  box-sizing: border-box;
+  background: var(--bg-primary);
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.pdf-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pdf-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 14px;
+}
+
+.pdf-icon {
+  font-size: 1.8rem;
+  color: #e74c3c;
+}
+
+.pdf-file-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(108, 99, 255, 0.09);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.pdf-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.pdf-card-info h3 {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.pdf-card-info p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pdf-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+.pdf-view-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border-radius: 9px;
+  background: var(--gradient);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pdf-gallery-item:hover .pdf-view-button {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.25);
+}
+
+/* Lightbox */
+
 .lightbox-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
@@ -183,18 +331,19 @@
 
 .lightbox-content {
   position: relative;
-  max-width: 90vw;
+  width: min(1100px, 95vw);
   max-height: 90vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
 .lightbox-close {
   position: absolute;
-  top: -50px;
+  top: -45px;
   right: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   color: white;
   border: none;
   padding: 10px;
@@ -203,15 +352,16 @@
   font-size: 1.2rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
 .lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   transform: scale(1.1);
 }
 
 .lightbox-nav {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   color: white;
   border: none;
   padding: 15px;
@@ -224,20 +374,23 @@
 }
 
 .lightbox-nav:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   transform: scale(1.1);
 }
 
 .lightbox-media-container {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-.lightbox-image, .lightbox-video {
+.lightbox-image,
+.lightbox-video {
+  display: block;
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 75vh;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -249,9 +402,9 @@
 
 .lightbox-counter {
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   padding: 8px 16px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -269,6 +422,7 @@
 }
 
 /* Responsive Design */
+
 @media (max-width: 768px) {
   .gallery-container {
     padding: 80px 15px 40px;
@@ -283,12 +437,19 @@
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(100%, 250px), 1fr)
+    );
+    gap: 16px;
+  }
+
+  .pdf-card {
+    min-height: 230px;
+    padding: 20px;
   }
 
   .lightbox-content {
-    flex-direction: column;
     gap: 10px;
   }
 
@@ -297,28 +458,45 @@
     font-size: 1.2rem;
   }
 
-  .lightbox-close {
-    top: -40px;
-    right: 50%;
-    transform: translateX(50%);
+  .lightbox-image,
+  .lightbox-video {
+    max-height: 70vh;
   }
 }
 
 @media (max-width: 480px) {
   .gallery-container {
-    padding: 60px 10px 30px;
+    padding: 60px 12px 30px;
   }
 
   .gallery-title {
     font-size: 1.8rem;
   }
 
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .gallery-subtitle {
+    font-size: 1rem;
   }
 
-  .expand-icon, .play-icon {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pdf-card {
+    min-height: 215px;
+    padding: 20px;
+  }
+
+  .pdf-card-top {
+    margin-bottom: 18px;
+  }
+
+  .pdf-card-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .expand-icon,
+  .play-icon {
     font-size: 1.5rem;
     padding: 10px;
   }
@@ -326,5 +504,27 @@
   .video-play-icon {
     font-size: 1.5rem;
     padding: 12px;
+  }
+
+  .lightbox-overlay {
+    padding: 12px;
+  }
+
+  .lightbox-content {
+    gap: 6px;
+  }
+
+  .lightbox-nav {
+    padding: 9px;
+    font-size: 1rem;
+  }
+
+  .lightbox-close {
+    top: -42px;
+    right: 0;
+  }
+
+  .lightbox-counter {
+    font-size: 0.9rem;
   }
 }
